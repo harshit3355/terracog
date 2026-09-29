@@ -1,0 +1,14 @@
+[project]
+name = "terracog"
+version = "0.1.0"
+description = "Intent-aware Terraform drift triage: decide REVERT, CODIFY, QUARANTINE or HUMAN_REVIEW from plan JSON, CloudTrail provenance and counterfactual harm."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
