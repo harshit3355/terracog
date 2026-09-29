@@ -1,0 +1,2854 @@
+{
+  "seed": 7,
+  "cases": 56,
+  "negative_cases": 4,
+  "label_distribution": {
+    "REVERT": 18,
+    "CODIFY": 17,
+    "QUARANTINE": 12,
+    "HUMAN_REVIEW": 9
+  },
+  "summary": {
+    "always_revert": {
+      "n": 56,
+      "correct": 18,
+      "accuracy": 0.3214,
+      "mean_cdr": 2.75,
+      "total_cdr": 154,
+      "false_auto_remediation": 38,
+      "severe_regret_cases": 11,
+      "human_reviews": 0
+    },
+    "always_codify": {
+      "n": 56,
+      "correct": 17,
+      "accuracy": 0.3036,
+      "mean_cdr": 3.6786,
+      "total_cdr": 206,
+      "false_auto_remediation": 39,
+      "severe_regret_cases": 18,
+      "human_reviews": 0
+    },
+    "always_human_review": {
+      "n": 56,
+      "correct": 9,
+      "accuracy": 0.1607,
+      "mean_cdr": 1.625,
+      "total_cdr": 91,
+      "false_auto_remediation": 0,
+      "severe_regret_cases": 5,
+      "human_reviews": 56
+    },
+    "severity_only": {
+      "n": 56,
+      "correct": 17,
+      "accuracy": 0.3036,
+      "mean_cdr": 2.125,
+      "total_cdr": 119,
+      "false_auto_remediation": 24,
+      "severe_regret_cases": 8,
+      "human_reviews": 15
+    },
+    "intent_rules_no_counterfactual": {
+      "n": 56,
+      "correct": 41,
+      "accuracy": 0.7321,
+      "mean_cdr": 0.8393,
+      "total_cdr": 47,
+      "false_auto_remediation": 11,
+      "severe_regret_cases": 4,
+      "human_reviews": 2
+    },
+    "counterfactual_no_intent": {
+      "n": 56,
+      "correct": 16,
+      "accuracy": 0.2857,
+      "mean_cdr": 1.375,
+      "total_cdr": 77,
+      "false_auto_remediation": 21,
+      "severe_regret_cases": 4,
+      "human_reviews": 21
+    },
+    "counterfactual_no_blast_radius": {
+      "n": 56,
+      "correct": 42,
+      "accuracy": 0.75,
+      "mean_cdr": 0.4464,
+      "total_cdr": 25,
+      "false_auto_remediation": 11,
+      "severe_regret_cases": 1,
+      "human_reviews": 4
+    },
+    "terracog": {
+      "n": 56,
+      "correct": 39,
+      "accuracy": 0.6964,
+      "mean_cdr": 0.5893,
+      "total_cdr": 33,
+      "false_auto_remediation": 11,
+      "severe_regret_cases": 2,
+      "human_reviews": 7
+    }
+  },
+  "summary_excluding_negative": {
+    "always_revert": {
+      "n": 52,
+      "correct": 16,
+      "accuracy": 0.3077,
+      "mean_cdr": 2.7115,
+      "total_cdr": 141,
+      "false_auto_remediation": 36,
+      "severe_regret_cases": 10,
+      "human_reviews": 0
+    },
+    "always_codify": {
+      "n": 52,
+      "correct": 16,
+      "accuracy": 0.3077,
+      "mean_cdr": 3.6538,
+      "total_cdr": 190,
+      "false_auto_remediation": 36,
+      "severe_regret_cases": 17,
+      "human_reviews": 0
+    },
+    "always_human_review": {
+      "n": 52,
+      "correct": 9,
+      "accuracy": 0.1731,
+      "mean_cdr": 1.5769,
+      "total_cdr": 82,
+      "false_auto_remediation": 0,
+      "severe_regret_cases": 4,
+      "human_reviews": 52
+    },
+    "severity_only": {
+      "n": 52,
+      "correct": 15,
+      "accuracy": 0.2885,
+      "mean_cdr": 2.25,
+      "total_cdr": 117,
+      "false_auto_remediation": 24,
+      "severe_regret_cases": 8,
+      "human_reviews": 13
+    },
+    "intent_rules_no_counterfactual": {
+      "n": 52,
+      "correct": 40,
+      "accuracy": 0.7692,
+      "mean_cdr": 0.6538,
+      "total_cdr": 34,
+      "false_auto_remediation": 11,
+      "severe_regret_cases": 3,
+      "human_reviews": 1
+    },
+    "counterfactual_no_intent": {
+      "n": 52,
+      "correct": 16,
+      "accuracy": 0.3077,
+      "mean_cdr": 1.3077,
+      "total_cdr": 68,
+      "false_auto_remediation": 21,
+      "severe_regret_cases": 3,
+      "human_reviews": 17
+    },
+    "counterfactual_no_blast_radius": {
+      "n": 52,
+      "correct": 40,
+      "accuracy": 0.7692,
+      "mean_cdr": 0.4231,
+      "total_cdr": 22,
+      "false_auto_remediation": 11,
+      "severe_regret_cases": 1,
+      "human_reviews": 3
+    },
+    "terracog": {
+      "n": 52,
+      "correct": 39,
+      "accuracy": 0.75,
+      "mean_cdr": 0.4423,
+      "total_cdr": 23,
+      "false_auto_remediation": 11,
+      "severe_regret_cases": 1,
+      "human_reviews": 4
+    }
+  },
+  "summary_negative_only": {
+    "always_revert": {
+      "n": 4,
+      "correct": 2,
+      "accuracy": 0.5,
+      "mean_cdr": 3.25,
+      "total_cdr": 13,
+      "false_auto_remediation": 2,
+      "severe_regret_cases": 1,
+      "human_reviews": 0
+    },
+    "always_codify": {
+      "n": 4,
+      "correct": 1,
+      "accuracy": 0.25,
+      "mean_cdr": 4.0,
+      "total_cdr": 16,
+      "false_auto_remediation": 3,
+      "severe_regret_cases": 1,
+      "human_reviews": 0
+    },
+    "always_human_review": {
+      "n": 4,
+      "correct": 0,
+      "accuracy": 0.0,
+      "mean_cdr": 2.25,
+      "total_cdr": 9,
+      "false_auto_remediation": 0,
+      "severe_regret_cases": 1,
+      "human_reviews": 4
+    },
+    "severity_only": {
+      "n": 4,
+      "correct": 2,
+      "accuracy": 0.5,
+      "mean_cdr": 0.5,
+      "total_cdr": 2,
+      "false_auto_remediation": 0,
+      "severe_regret_cases": 0,
+      "human_reviews": 2
+    },
+    "intent_rules_no_counterfactual": {
+      "n": 4,
+      "correct": 1,
+      "accuracy": 0.25,
+      "mean_cdr": 3.25,
+      "total_cdr": 13,
+      "false_auto_remediation": 0,
+      "severe_regret_cases": 1,
+      "human_reviews": 1
+    },
+    "counterfactual_no_intent": {
+      "n": 4,
+      "correct": 0,
+      "accuracy": 0.0,
+      "mean_cdr": 2.25,
+      "total_cdr": 9,
+      "false_auto_remediation": 0,
+      "severe_regret_cases": 1,
+      "human_reviews": 4
+    },
+    "counterfactual_no_blast_radius": {
+      "n": 4,
+      "correct": 2,
+      "accuracy": 0.5,
+      "mean_cdr": 0.75,
+      "total_cdr": 3,
+      "false_auto_remediation": 0,
+      "severe_regret_cases": 0,
+      "human_reviews": 1
+    },
+    "terracog": {
+      "n": 4,
+      "correct": 0,
+      "accuracy": 0.0,
+      "mean_cdr": 2.5,
+      "total_cdr": 10,
+      "false_auto_remediation": 0,
+      "severe_regret_cases": 1,
+      "human_reviews": 3
+    }
+  },
+  "bootstrap_vs_terracog": {
+    "always_revert": {
+      "mean_diff": 2.1607,
+      "ci95": [
+        1.2143,
+        3.125
+      ]
+    },
+    "always_codify": {
+      "mean_diff": 3.0893,
+      "ci95": [
+        2.1429,
+        4.0714
+      ]
+    },
+    "always_human_review": {
+      "mean_diff": 1.0357,
+      "ci95": [
+        0.5893,
+        1.5
+      ]
+    },
+    "severity_only": {
+      "mean_diff": 1.5357,
+      "ci95": [
+        0.7143,
+        2.3929
+      ]
+    },
+    "intent_rules_no_counterfactual": {
+      "mean_diff": 0.25,
+      "ci95": [
+        -0.1964,
+        0.7679
+      ]
+    },
+    "counterfactual_no_intent": {
+      "mean_diff": 0.7857,
+      "ci95": [
+        0.4464,
+        1.2321
+      ]
+    },
+    "counterfactual_no_blast_radius": {
+      "mean_diff": -0.1429,
+      "ci95": [
+        -0.375,
+        0.0
+      ]
+    }
+  },
+  "by_category": {
+    "approved_uncodified": {
+      "always_revert": 1.75,
+      "always_codify": 1.5,
+      "always_human_review": 1.25,
+      "severity_only": 1.5,
+      "intent_rules_no_counterfactual": 0.0,
+      "counterfactual_no_intent": 1.25,
+      "counterfactual_no_blast_radius": 0.0,
+      "terracog": 0.0
+    },
+    "config_drift": {
+      "always_revert": 1.0,
+      "always_codify": 2.0,
+      "always_human_review": 1.3333,
+      "severity_only": 1.0,
+      "intent_rules_no_counterfactual": 0.3333,
+      "counterfactual_no_intent": 1.0,
+      "counterfactual_no_blast_radius": 1.0,
+      "terracog": 1.0
+    },
+    "controller_managed": {
+      "always_revert": 4.2,
+      "always_codify": 4.0,
+      "always_human_review": 1.8,
+      "severity_only": 3.2,
+      "intent_rules_no_counterfactual": 0.0,
+      "counterfactual_no_intent": 3.6,
+      "counterfactual_no_blast_radius": 0.0,
+      "terracog": 0.0
+    },
+    "dns_fix": {
+      "always_revert": 3.8,
+      "always_codify": 3.2,
+      "always_human_review": 1.8,
+      "severity_only": 3.8,
+      "intent_rules_no_counterfactual": 0.6,
+      "counterfactual_no_intent": 1.8,
+      "counterfactual_no_blast_radius": 1.4,
+      "terracog": 1.4
+    },
+    "emergency_hotfix": {
+      "always_revert": 9.5,
+      "always_codify": 2.1667,
+      "always_human_review": 1.0,
+      "severity_only": 6.6667,
+      "intent_rules_no_counterfactual": 0.0,
+      "counterfactual_no_intent": 1.0,
+      "counterfactual_no_blast_radius": 0.0,
+      "terracog": 0.0
+    },
+    "emergency_resolved": {
+      "always_revert": 2.0,
+      "always_codify": 2.5,
+      "always_human_review": 1.25,
+      "severity_only": 1.0,
+      "intent_rules_no_counterfactual": 2.5,
+      "counterfactual_no_intent": 0.75,
+      "counterfactual_no_blast_radius": 0.5,
+      "terracog": 0.5
+    },
+    "iam_widening": {
+      "always_revert": 1.0,
+      "always_codify": 5.3333,
+      "always_human_review": 1.0,
+      "severity_only": 1.0,
+      "intent_rules_no_counterfactual": 2.6667,
+      "counterfactual_no_intent": 1.0,
+      "counterfactual_no_blast_radius": 1.0,
+      "terracog": 1.0
+    },
+    "negative": {
+      "always_revert": 3.25,
+      "always_codify": 4.0,
+      "always_human_review": 2.25,
+      "severity_only": 0.5,
+      "intent_rules_no_counterfactual": 3.25,
+      "counterfactual_no_intent": 2.25,
+      "counterfactual_no_blast_radius": 0.75,
+      "terracog": 2.5
+    },
+    "public_exposure": {
+      "always_revert": 0.4,
+      "always_codify": 8.4,
+      "always_human_review": 3.4,
+      "severity_only": 0.4,
+      "intent_rules_no_counterfactual": 0.8,
+      "counterfactual_no_intent": 0.4,
+      "counterfactual_no_blast_radius": 0.4,
+      "terracog": 0.4
+    },
+    "replica_change": {
+      "always_revert": 0.8,
+      "always_codify": 4.8,
+      "always_human_review": 2.0,
+      "severity_only": 1.0,
+      "intent_rules_no_counterfactual": 0.0,
+      "counterfactual_no_intent": 0.8,
+      "counterfactual_no_blast_radius": 0.0,
+      "terracog": 0.2
+    },
+    "security_group_mutation": {
+      "always_revert": 1.5714,
+      "always_codify": 4.1429,
+      "always_human_review": 1.5714,
+      "severity_only": 1.5714,
+      "intent_rules_no_counterfactual": 0.8571,
+      "counterfactual_no_intent": 1.2857,
+      "counterfactual_no_blast_radius": 0.1429,
+      "terracog": 0.1429
+    },
+    "tag_drift": {
+      "always_revert": 1.2,
+      "always_codify": 1.6,
+      "always_human_review": 0.6,
+      "severity_only": 1.6,
+      "intent_rules_no_counterfactual": 0.4,
+      "counterfactual_no_intent": 1.2,
+      "counterfactual_no_blast_radius": 0.8,
+      "terracog": 0.8
+    }
+  },
+  "evidence": {
+    "event_linked": 54,
+    "provenance_verified": 31
+  },
+  "cases_detail": [
+    {
+      "id": "hotfix-checkout-min-size",
+      "category": "emergency_hotfix",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 9,
+        "CODIFY": 2,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-1042 is an open incident on checkout",
+      "estimated_harm": {
+        "REVERT": 9.45,
+        "CODIFY": 2.0,
+        "QUARANTINE": 0.2,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 9,
+        "always_codify": 2,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "hotfix-payments-task-count",
+      "category": "emergency_hotfix",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 10,
+        "CODIFY": 2,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-2001 is an open incident on payments",
+      "estimated_harm": {
+        "REVERT": 15.5,
+        "CODIFY": 2.0,
+        "QUARANTINE": 0.2,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 10,
+        "always_codify": 2,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "hotfix-dns-failover",
+      "category": "emergency_hotfix",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 10,
+        "CODIFY": 3,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-3001 is an open incident on edge",
+      "estimated_harm": {
+        "REVERT": 7.8,
+        "CODIFY": 2.0,
+        "QUARANTINE": 0.2,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 10,
+        "always_codify": 3,
+        "always_human_review": 1,
+        "severity_only": 10,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "hotfix-internal-port",
+      "category": "emergency_hotfix",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 8,
+        "CODIFY": 2,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-1043 is an open incident on checkout",
+      "estimated_harm": {
+        "REVERT": 5.7,
+        "CODIFY": 2.0,
+        "QUARANTINE": 0.2,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 8,
+        "always_codify": 2,
+        "always_human_review": 1,
+        "severity_only": 8,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "hotfix-db-upsize",
+      "category": "emergency_hotfix",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 10,
+        "CODIFY": 2,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-2002 is an open incident on payments",
+      "estimated_harm": {
+        "REVERT": 14.5,
+        "CODIFY": 2.0,
+        "QUARANTINE": 0.2,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 10,
+        "always_codify": 2,
+        "always_human_review": 1,
+        "severity_only": 10,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "hotfix-session-cache-replicas",
+      "category": "emergency_hotfix",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 10,
+        "CODIFY": 2,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_active",
+      "confidence": 0.75,
+      "reason": "INC-4001 is an open incident on identity",
+      "estimated_harm": {
+        "REVERT": 13.75,
+        "CODIFY": 2.0,
+        "QUARANTINE": 0.5,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 10,
+        "always_codify": 2,
+        "always_human_review": 1,
+        "severity_only": 10,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "resolved-capacity-keep",
+      "category": "emergency_resolved",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 4,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_resolved",
+      "confidence": 0.8,
+      "reason": "INC-1050 is a resolved incident on checkout",
+      "estimated_harm": {
+        "REVERT": 2.5,
+        "CODIFY": 0.4,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 4,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "resolved-debug-port-left-open",
+      "category": "emergency_resolved",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 8,
+        "QUARANTINE": 6,
+        "HUMAN_REVIEW": 3
+      },
+      "intent": "emergency_resolved",
+      "confidence": 0.8,
+      "reason": "INC-5001 is a resolved incident on catalog",
+      "estimated_harm": {
+        "REVERT": 1.725,
+        "CODIFY": 6.4,
+        "QUARANTINE": 5.6,
+        "HUMAN_REVIEW": 2.8
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 8,
+        "always_human_review": 3,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 8,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "resolved-dns-still-failed-over",
+      "category": "emergency_resolved",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 3,
+        "CODIFY": 3,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_resolved",
+      "confidence": 0.8,
+      "reason": "INC-3002 is a resolved incident on edge",
+      "estimated_harm": {
+        "REVERT": 2.7,
+        "CODIFY": 0.4,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 2,
+        "always_human_review": 0,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 2,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 2,
+        "terracog": 2
+      }
+    },
+    {
+      "id": "resolved-lambda-timeout",
+      "category": "emergency_resolved",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_resolved",
+      "confidence": 0.8,
+      "reason": "INC-6001 is a resolved incident on reporting",
+      "estimated_harm": {
+        "REVERT": 1.625,
+        "CODIFY": 0.4,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "autoscaler-desired-capacity",
+      "category": "controller_managed",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 6,
+        "CODIFY": 3,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "controller",
+      "confidence": 0.95,
+      "reason": "AWSServiceRoleForAutoScaling owns aws_autoscaling_group.desired_capacity",
+      "estimated_harm": {
+        "REVERT": 3.53,
+        "CODIFY": 2.95,
+        "QUARANTINE": 0.1,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 6,
+        "always_codify": 3,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "appautoscaling-task-count",
+      "category": "controller_managed",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 4,
+        "CODIFY": 3,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "controller",
+      "confidence": 0.95,
+      "reason": "AWSServiceRoleForApplicationAutoScaling_ECSService owns aws_ecs_service.desired_count",
+      "estimated_harm": {
+        "REVERT": 3.381,
+        "CODIFY": 2.95,
+        "QUARANTINE": 0.1,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 4,
+        "always_codify": 3,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "rds-auto-minor-upgrade",
+      "category": "controller_managed",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 8,
+        "CODIFY": 1,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "controller",
+      "confidence": 0.95,
+      "reason": "AWSServiceRoleForRDS owns aws_db_instance.engine_version",
+      "estimated_harm": {
+        "REVERT": 2.856,
+        "CODIFY": 2.95,
+        "QUARANTINE": 0.1,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 8,
+        "always_codify": 1,
+        "always_human_review": 1,
+        "severity_only": 8,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 8,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "autoscaler-scale-in-night",
+      "category": "controller_managed",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 3,
+        "CODIFY": 3,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "controller",
+      "confidence": 0.95,
+      "reason": "AWSServiceRoleForAutoScaling owns aws_autoscaling_group.desired_capacity",
+      "estimated_harm": {
+        "REVERT": 2.869,
+        "CODIFY": 4.95,
+        "QUARANTINE": 1.3,
+        "HUMAN_REVIEW": 1.6
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 3,
+        "always_codify": 3,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 3,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "human-zeroes-controller-field",
+      "category": "controller_managed",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 10,
+        "QUARANTINE": 8,
+        "HUMAN_REVIEW": 5
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.9,
+        "CODIFY": 7.3,
+        "QUARANTINE": 5.6,
+        "HUMAN_REVIEW": 2.8
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 10,
+        "always_human_review": 5,
+        "severity_only": 5,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 5,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "tag-add-cost-center",
+      "category": "tag_drift",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 1,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.0,
+        "CODIFY": 1.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "CODIFY",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 1,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 1,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 1,
+        "terracog": 1
+      }
+    },
+    {
+      "id": "tag-owner-removed",
+      "category": "tag_drift",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 3,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.0,
+        "CODIFY": 3.3,
+        "QUARANTINE": 3.2,
+        "HUMAN_REVIEW": 1.6
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "CODIFY",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 3,
+        "always_human_review": 1,
+        "severity_only": 3,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "tag-by-unknown-principal",
+      "category": "tag_drift",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 5,
+        "QUARANTINE": 3,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "suspicious",
+      "confidence": 0.8,
+      "reason": "principal user/svc-legacy is not in the directory",
+      "estimated_harm": {
+        "REVERT": 0.0,
+        "CODIFY": 5.2,
+        "QUARANTINE": 2.8,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "CODIFY",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 1,
+        "always_codify": 4,
+        "always_human_review": 0,
+        "severity_only": 4,
+        "intent_rules_no_counterfactual": 1,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 1,
+        "terracog": 1
+      }
+    },
+    {
+      "id": "tag-owner-transfer-approved",
+      "category": "tag_drift",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7001 is an approved change for payments",
+      "estimated_harm": {
+        "REVERT": 1.7,
+        "CODIFY": 0.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "CODIFY",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "tag-backup-no-event",
+      "category": "tag_drift",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 3,
+        "CODIFY": 2,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "unknown",
+      "confidence": 0.0,
+      "reason": "no audit event touches this attribute",
+      "estimated_harm": {
+        "REVERT": 0.0,
+        "CODIFY": 2.0,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": false,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "CODIFY",
+        "intent_rules_no_counterfactual": "HUMAN_REVIEW",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 1,
+        "always_human_review": 0,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 2,
+        "terracog": 2
+      }
+    },
+    {
+      "id": "sg-ssh-world-developer",
+      "category": "security_group_mutation",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 9,
+        "QUARANTINE": 7,
+        "HUMAN_REVIEW": 3
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.038,
+        "CODIFY": 10.3,
+        "QUARANTINE": 7.4,
+        "HUMAN_REVIEW": 3.7
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 9,
+        "always_human_review": 3,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "sg-postgres-world-unknown",
+      "category": "security_group_mutation",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 10,
+        "QUARANTINE": 9,
+        "HUMAN_REVIEW": 5
+      },
+      "intent": "suspicious",
+      "confidence": 0.8,
+      "reason": "principal user/svc-legacy is not in the directory",
+      "estimated_harm": {
+        "REVERT": 0.25,
+        "CODIFY": 15.2,
+        "QUARANTINE": 8.8,
+        "HUMAN_REVIEW": 4.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 10,
+        "always_human_review": 5,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "sg-internal-approved",
+      "category": "security_group_mutation",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7002 is an approved change for catalog",
+      "estimated_harm": {
+        "REVERT": 1.794,
+        "CODIFY": 0.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "sg-tighten-approved",
+      "category": "security_group_mutation",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 3,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7003 is an approved change for payments",
+      "estimated_harm": {
+        "REVERT": 1.887,
+        "CODIFY": 0.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 3,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 3,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "sg-rule-removed-adhoc",
+      "category": "security_group_mutation",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 3,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.225,
+        "CODIFY": 1.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 1,
+        "always_codify": 2,
+        "always_human_review": 0,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 1,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 1,
+        "terracog": 1
+      }
+    },
+    {
+      "id": "sg-http-world-approved",
+      "category": "security_group_mutation",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7004 is an approved change for edge",
+      "estimated_harm": {
+        "REVERT": 1.775,
+        "CODIFY": 0.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "sg-ssh-world-during-incident",
+      "category": "security_group_mutation",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 5,
+        "CODIFY": 10,
+        "QUARANTINE": 7,
+        "HUMAN_REVIEW": 2
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-1044 is an open incident on checkout",
+      "estimated_harm": {
+        "REVERT": 5.7,
+        "CODIFY": 11.0,
+        "QUARANTINE": 5.6,
+        "HUMAN_REVIEW": 3.7
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "HUMAN_REVIEW",
+        "terracog": "HUMAN_REVIEW"
+      },
+      "regret": {
+        "always_revert": 3,
+        "always_codify": 8,
+        "always_human_review": 0,
+        "severity_only": 3,
+        "intent_rules_no_counterfactual": 5,
+        "counterfactual_no_intent": 3,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "s3-public-developer",
+      "category": "public_exposure",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 10,
+        "QUARANTINE": 8,
+        "HUMAN_REVIEW": 4
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.038,
+        "CODIFY": 10.3,
+        "QUARANTINE": 7.4,
+        "HUMAN_REVIEW": 3.7
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 10,
+        "always_human_review": 4,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "rds-public-unverified-ticket",
+      "category": "public_exposure",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 10,
+        "QUARANTINE": 8,
+        "HUMAN_REVIEW": 4
+      },
+      "intent": "unverified",
+      "confidence": 0.8,
+      "reason": "cited CHG-9999 does not exist",
+      "estimated_harm": {
+        "REVERT": 0.025,
+        "CODIFY": 12.8,
+        "QUARANTINE": 8.0,
+        "HUMAN_REVIEW": 4.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 10,
+        "always_human_review": 4,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "s3-public-approved-website",
+      "category": "public_exposure",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 3,
+        "CODIFY": 5,
+        "QUARANTINE": 3,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7005 is an approved change for edge",
+      "estimated_harm": {
+        "REVERT": 1.775,
+        "CODIFY": 9.3,
+        "QUARANTINE": 7.4,
+        "HUMAN_REVIEW": 3.7
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 4,
+        "always_human_review": 0,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 4,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 2,
+        "terracog": 2
+      }
+    },
+    {
+      "id": "rds-public-unknown-principal",
+      "category": "public_exposure",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 10,
+        "QUARANTINE": 10,
+        "HUMAN_REVIEW": 6
+      },
+      "intent": "suspicious",
+      "confidence": 0.8,
+      "reason": "principal user/svc-legacy is not in the directory",
+      "estimated_harm": {
+        "REVERT": 0.25,
+        "CODIFY": 15.2,
+        "QUARANTINE": 8.8,
+        "HUMAN_REVIEW": 4.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 10,
+        "always_human_review": 6,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "ebs-encryption-disabled",
+      "category": "public_exposure",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 8,
+        "QUARANTINE": 6,
+        "HUMAN_REVIEW": 3
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.075,
+        "CODIFY": 8.3,
+        "QUARANTINE": 6.2,
+        "HUMAN_REVIEW": 3.1
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 8,
+        "always_human_review": 3,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "cache-replicas-down-adhoc",
+      "category": "replica_change",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 8,
+        "QUARANTINE": 6,
+        "HUMAN_REVIEW": 3
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.375,
+        "CODIFY": 7.967,
+        "QUARANTINE": 6.0,
+        "HUMAN_REVIEW": 3.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 8,
+        "always_human_review": 3,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "task-count-cut-approved",
+      "category": "replica_change",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7006 is an approved change for catalog",
+      "estimated_harm": {
+        "REVERT": 1.794,
+        "CODIFY": 1.967,
+        "QUARANTINE": 3.0,
+        "HUMAN_REVIEW": 1.5
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "HUMAN_REVIEW"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 1
+      }
+    },
+    {
+      "id": "rds-multi-az-off-adhoc",
+      "category": "replica_change",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 9,
+        "QUARANTINE": 6,
+        "HUMAN_REVIEW": 3
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.375,
+        "CODIFY": 6.3,
+        "QUARANTINE": 5.0,
+        "HUMAN_REVIEW": 2.5
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 9,
+        "always_human_review": 3,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "asg-min-down-adhoc",
+      "category": "replica_change",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 7,
+        "QUARANTINE": 5,
+        "HUMAN_REVIEW": 2
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.225,
+        "CODIFY": 5.3,
+        "QUARANTINE": 4.4,
+        "HUMAN_REVIEW": 2.2
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 7,
+        "always_human_review": 2,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "reporting-db-downsize-approved",
+      "category": "replica_change",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7007 is an approved change for reporting",
+      "estimated_harm": {
+        "REVERT": 1.719,
+        "CODIFY": 0.633,
+        "QUARANTINE": 2.2,
+        "HUMAN_REVIEW": 1.1
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "dns-drain-primary-incident",
+      "category": "dns_fix",
+      "negative": false,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 10,
+        "CODIFY": 3,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-2003 is an open incident on payments",
+      "estimated_harm": {
+        "REVERT": 19.5,
+        "CODIFY": 2.0,
+        "QUARANTINE": 0.2,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 10,
+        "always_codify": 3,
+        "always_human_review": 1,
+        "severity_only": 10,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "dns-ttl-lowered",
+      "category": "dns_fix",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 1,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "platform-engineer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.15,
+        "CODIFY": 1.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 1,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 1,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 1,
+        "terracog": 1
+      }
+    },
+    {
+      "id": "dns-hijack-unknown",
+      "category": "dns_fix",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 10,
+        "QUARANTINE": 10,
+        "HUMAN_REVIEW": 6
+      },
+      "intent": "suspicious",
+      "confidence": 0.8,
+      "reason": "principal user/svc-legacy is not in the directory",
+      "estimated_harm": {
+        "REVERT": 1.1,
+        "CODIFY": 5.2,
+        "QUARANTINE": 2.8,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "HUMAN_REVIEW",
+        "terracog": "HUMAN_REVIEW"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 10,
+        "always_human_review": 6,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 6,
+        "counterfactual_no_blast_radius": 6,
+        "terracog": 6
+      }
+    },
+    {
+      "id": "dns-migration-approved",
+      "category": "dns_fix",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 6,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7008 is an approved change for payments",
+      "estimated_harm": {
+        "REVERT": 4.388,
+        "CODIFY": 0.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 6,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 6,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "dns-repoint-adhoc",
+      "category": "dns_fix",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 3,
+        "CODIFY": 4,
+        "QUARANTINE": 3,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 1.15,
+        "CODIFY": 1.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "HUMAN_REVIEW",
+        "terracog": "HUMAN_REVIEW"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 3,
+        "always_human_review": 0,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 2,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "approved-db-upsize",
+      "category": "approved_uncodified",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 3,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7009 is an approved change for payments",
+      "estimated_harm": {
+        "REVERT": 2.721,
+        "CODIFY": 0.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 3,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 3,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "approved-lambda-memory",
+      "category": "approved_uncodified",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7010 is an approved change for reporting",
+      "estimated_harm": {
+        "REVERT": 1.844,
+        "CODIFY": 0.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "approved-backup-retention",
+      "category": "approved_uncodified",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7011 is an approved change for reporting",
+      "estimated_harm": {
+        "REVERT": 1.719,
+        "CODIFY": 0.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "CODIFY",
+        "terracog": "CODIFY"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "ticket-for-other-service",
+      "category": "approved_uncodified",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 6,
+        "QUARANTINE": 4,
+        "HUMAN_REVIEW": 2
+      },
+      "intent": "unverified",
+      "confidence": 0.8,
+      "reason": "CHG-7012 is for reporting, not payments",
+      "estimated_harm": {
+        "REVERT": 0.25,
+        "CODIFY": 6.8,
+        "QUARANTINE": 4.4,
+        "HUMAN_REVIEW": 2.2
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 6,
+        "always_human_review": 2,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "iam-wildcard-adhoc",
+      "category": "iam_widening",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 9,
+        "QUARANTINE": 7,
+        "HUMAN_REVIEW": 3
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.038,
+        "CODIFY": 9.3,
+        "QUARANTINE": 6.8,
+        "HUMAN_REVIEW": 3.4
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 9,
+        "always_human_review": 3,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "iam-wildcard-approved",
+      "category": "iam_widening",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 7,
+        "QUARANTINE": 5,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7013 is an approved change for checkout",
+      "estimated_harm": {
+        "REVERT": 1.812,
+        "CODIFY": 8.3,
+        "QUARANTINE": 6.8,
+        "HUMAN_REVIEW": 3.4
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 1,
+        "always_codify": 6,
+        "always_human_review": 0,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 6,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 1,
+        "terracog": 1
+      }
+    },
+    {
+      "id": "iam-narrowed-adhoc",
+      "category": "iam_widening",
+      "negative": false,
+      "label": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 3,
+        "CODIFY": 2,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "security-engineer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.038,
+        "CODIFY": 1.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 1,
+        "always_human_review": 0,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 2,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 2,
+        "terracog": 2
+      }
+    },
+    {
+      "id": "tls-policy-downgrade",
+      "category": "config_drift",
+      "negative": false,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 6,
+        "QUARANTINE": 5,
+        "HUMAN_REVIEW": 2
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.15,
+        "CODIFY": 7.3,
+        "QUARANTINE": 5.6,
+        "HUMAN_REVIEW": 2.8
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 6,
+        "always_human_review": 2,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 0,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 0
+      }
+    },
+    {
+      "id": "lambda-timeout-adhoc",
+      "category": "config_drift",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 1,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 0.038,
+        "CODIFY": 1.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 1,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 1,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 1,
+        "terracog": 1
+      }
+    },
+    {
+      "id": "deletion-protection-off-decommission",
+      "category": "config_drift",
+      "negative": false,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 2,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "approved_change",
+      "confidence": 0.85,
+      "reason": "CHG-7014 is an approved change for reporting",
+      "estimated_harm": {
+        "REVERT": 1.719,
+        "CODIFY": 5.3,
+        "QUARANTINE": 5.0,
+        "HUMAN_REVIEW": 2.5
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "CODIFY",
+        "counterfactual_no_intent": "REVERT",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "REVERT"
+      },
+      "regret": {
+        "always_revert": 2,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 2,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 2,
+        "terracog": 2
+      }
+    },
+    {
+      "id": "NEG-spoofed-breakglass",
+      "category": "negative",
+      "negative": true,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 10,
+        "QUARANTINE": 10,
+        "HUMAN_REVIEW": 5
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-2004 is an open incident on payments",
+      "estimated_harm": {
+        "REVERT": 9.5,
+        "CODIFY": 12.0,
+        "QUARANTINE": 6.2,
+        "HUMAN_REVIEW": 4.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "HUMAN_REVIEW"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 10,
+        "always_human_review": 5,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 10,
+        "counterfactual_no_intent": 5,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 5
+      }
+    },
+    {
+      "id": "NEG-audit-log-gap",
+      "category": "negative",
+      "negative": true,
+      "label": "QUARANTINE",
+      "harm": {
+        "REVERT": 9,
+        "CODIFY": 2,
+        "QUARANTINE": 0,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "unknown",
+      "confidence": 0.0,
+      "reason": "no audit event touches this attribute",
+      "estimated_harm": {
+        "REVERT": 6.0,
+        "CODIFY": 2.0,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": false,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "HUMAN_REVIEW",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "HUMAN_REVIEW",
+        "terracog": "HUMAN_REVIEW"
+      },
+      "regret": {
+        "always_revert": 9,
+        "always_codify": 2,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 1,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 1,
+        "terracog": 1
+      }
+    },
+    {
+      "id": "NEG-stale-incident",
+      "category": "negative",
+      "negative": true,
+      "label": "CODIFY",
+      "harm": {
+        "REVERT": 4,
+        "CODIFY": 0,
+        "QUARANTINE": 2,
+        "HUMAN_REVIEW": 1
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-1001 is an open incident on checkout",
+      "estimated_harm": {
+        "REVERT": 6.037,
+        "CODIFY": 2.0,
+        "QUARANTINE": 0.2,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": true,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "HUMAN_REVIEW",
+        "intent_rules_no_counterfactual": "QUARANTINE",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "QUARANTINE",
+        "terracog": "QUARANTINE"
+      },
+      "regret": {
+        "always_revert": 4,
+        "always_codify": 0,
+        "always_human_review": 1,
+        "severity_only": 1,
+        "intent_rules_no_counterfactual": 2,
+        "counterfactual_no_intent": 1,
+        "counterfactual_no_blast_radius": 2,
+        "terracog": 2
+      }
+    },
+    {
+      "id": "NEG-cost-not-modelled",
+      "category": "negative",
+      "negative": true,
+      "label": "REVERT",
+      "harm": {
+        "REVERT": 0,
+        "CODIFY": 4,
+        "QUARANTINE": 3,
+        "HUMAN_REVIEW": 2
+      },
+      "intent": "ad_hoc",
+      "confidence": 0.7,
+      "reason": "developer changed it without citing a ticket",
+      "estimated_harm": {
+        "REVERT": 1.0,
+        "CODIFY": 1.3,
+        "QUARANTINE": 2.0,
+        "HUMAN_REVIEW": 1.0
+      },
+      "event_linked": true,
+      "provenance_verified": false,
+      "choice": {
+        "always_revert": "REVERT",
+        "always_codify": "CODIFY",
+        "always_human_review": "HUMAN_REVIEW",
+        "severity_only": "REVERT",
+        "intent_rules_no_counterfactual": "REVERT",
+        "counterfactual_no_intent": "HUMAN_REVIEW",
+        "counterfactual_no_blast_radius": "REVERT",
+        "terracog": "HUMAN_REVIEW"
+      },
+      "regret": {
+        "always_revert": 0,
+        "always_codify": 4,
+        "always_human_review": 2,
+        "severity_only": 0,
+        "intent_rules_no_counterfactual": 0,
+        "counterfactual_no_intent": 2,
+        "counterfactual_no_blast_radius": 0,
+        "terracog": 2
+      }
+    }
+  ],
+  "provenance": {
+    "commit": "52c5574bd1fdd8f91d0bbc85c333af977ee78637",
+    "command": "python -m terracog bench --out reports",
+    "python": "3.10.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "inputs_sha256": "6ae75e7304a939d5",
+    "generated_at": "2026-09-29T09:16:54+00:00",
+    "seed": 7,
+    "fixtures": "fixtures/world.json + fixtures/cases.json"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "decisions": [
+    {
+      "address": "aws_security_group.checkout_app",
+      "attr": "ingress",
+      "action": "HUMAN_REVIEW",
+      "harm": {
+        "REVERT": 5.7,
+        "CODIFY": 11.0,
+        "QUARANTINE": 5.6,
+        "HUMAN_REVIEW": 3.7
+      },
+      "intent": "emergency_active",
+      "confidence": 0.9,
+      "reason": "INC-1044 is an open incident on checkout",
+      "edges": [
+        [
+          "aws_security_group.checkout_app",
+          "part_of",
+          "checkout"
+        ],
+        [
+          "checkout",
+          "depended_on_by",
+          "edge"
+        ],
+        [
+          "aws_security_group.checkout_app",
+          "changed_by",
+          "AuthorizeSecurityGroupIngress@2026-09-01T11:30:00Z"
+        ],
+        [
+          "AuthorizeSecurityGroupIngress@2026-09-01T11:30:00Z",
+          "principal",
+          "breakglass-oncall"
+        ],
+        [
+          "breakglass-oncall",
+          "cites",
+          "INC-1044"
+        ]
+      ]
+    }
+  ],
+  "provenance": {
+    "commit": "52c5574bd1fdd8f91d0bbc85c333af977ee78637",
+    "command": "python -m terracog decide --plan build/case/plan.json --events build/case/cloudtrail.json --tickets build/case/tickets.json --world build/case/world.json --report reports/example-decision",
+    "python": "3.10.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "inputs_sha256": "edf6c722d82dcb27",
+    "generated_at": "2026-09-29T09:17:10+00:00"
+  }
+}
