@@ -2,14 +2,13 @@
 
 **When live infrastructure and Terraform disagree, which one is right?**
 
+TERRACOG links each drifted attribute to who changed it and why, estimates the harm of reverting it,
+codifying it, holding it or escalating it, and recommends the lowest-harm action with the evidence.
+
 Drift detection is solved: `terraform plan` shows the difference. What it does not tell you is whether
 to **revert** the cloud to the code, **codify** the live change into the code, **quarantine** it
 (keep it, stop Terraform from touching it for now), or **page a human**. Revert an emergency fix
 and you re-trigger the incident. Codify an attacker's change and it is now "infrastructure as code".
-TERRACOG links each drifted attribute to who changed it, which ticket they cited, what depends on the
-service, whether the service is burning error budget and which policies the old and new values
-violate. It then estimates the harm of both counterfactual end states (reverted, codified) and of
-holding or escalating, and recommends the lowest-harm action with the evidence.
 
 > v0.1 research prototype. Local only: reads plan JSON, CloudTrail records and a ticket export, never
 > applies anything, no cloud account, no LLM. All benchmark data is **synthetic** and every label and
@@ -30,15 +29,54 @@ flowchart LR
   S --> O[REVERT / CODIFY /<br/>QUARANTINE / HUMAN_REVIEW<br/>+ Markdown evidence]
 ```
 
-## Evidence
+## Worked example
 
-**Benchmark** ([`reports/benchmark.md`](reports/benchmark.md)): 56 synthetic drift cases over 21 AWS
-resources: emergency hotfixes, resolved incidents, autoscaler- and AWS-managed fields, tag drift,
-security-group mutation, public exposure, replica changes, DNS changes, approved-but-uncodified
-changes, IAM widening, config drift, plus 4 negative cases written in advance. Each case defines the
-harm of all four actions (0-10 rubric), so **Counterfactual Drift Regret** (CDR = harm of the chosen
-action minus the lowest available harm) is reproducible. Correct actions: REVERT 18, CODIFY 17,
-QUARANTINE 12, HUMAN_REVIEW 9.
+Benchmark case `sg-ssh-world-during-incident` (synthetic): during an open incident, the on-call
+break-glass role opens SSH on the checkout security group to the whole internet. Provenance says
+"legitimate emergency, hold it"; security says "world-open SSH, revert it". Render the case into
+real-format files and decide:
+
+```text
+$ python -m terracog render sg-ssh-world-during-incident --out build/case
+wrote build/case/plan.json cloudtrail.json tickets.json world.json  (SYNTHETIC; label: HUMAN_REVIEW)
+
+$ python -m terracog decide --plan build/case/plan.json --events build/case/cloudtrail.json \
+    --tickets build/case/tickets.json --world build/case/world.json --report build/case/decision
+HUMAN_REVIEW  aws_security_group.checkout_app.ingress  [emergency_active] INC-1044 is an open incident on checkout
+wrote build\case\decision.json and build\case\decision.md
+
+$ cat build/case/decision.md
+...
+## `aws_security_group.checkout_app.ingress` -> HUMAN_REVIEW
+
+- Intent: **emergency_active** (confidence 0.9): INC-1044 is an open incident on checkout
+- Last change: `AuthorizeSecurityGroupIngress` by `breakglass-oncall/bo@INC-1044` at 2026-09-01T11:30:00Z
+- Ticket: INC-1044 (incident, open, checkout)
+- Service: checkout (tier 1, burn rate 2.5), dependents: edge
+- Policies violated by live: no-world-admin-ports, world-ingress-only-web; by IaC: none
+
+| Action | Estimated harm |
+|---|---|
+| REVERT | 5.7 |
+| CODIFY | 11.0 |
+| QUARANTINE | 5.6 |
+| HUMAN_REVIEW | 3.7 |
+
+Graph edges: aws_security_group.checkout_app -part_of-> checkout; checkout -depended_on_by-> edge; ...
+```
+
+The provenance is verified (the session cites a ticket that exists, is open and is for the same
+service), but codifying or holding a world-open admin port is expensive, so the recommendation is to
+page a human now. The author-assigned harm for this case is REVERT 5, CODIFY 10, QUARANTINE 7,
+HUMAN_REVIEW 2, so TERRACOG's regret is 0; severity-only triage reverts (regret 3) and the
+provenance-rules ablation quarantines (regret 5). The committed copy of this report is
+[`reports/example-decision.md`](reports/example-decision.md).
+
+## Results
+
+From [`reports/benchmark.md`](reports/benchmark.md): 56 synthetic drift cases, 4 of them negative.
+CDR (Counterfactual Drift Regret) = harm of the chosen action minus the lowest harm available for the
+case; lower is better. Wrong auto-remediation = chose REVERT or CODIFY and that was not the correct action.
 
 | Method | Correct | Mean CDR | Wrong auto-remediation | Regret >= 5 |
 |---|---|---|---|---|
@@ -50,8 +88,6 @@ QUARANTINE 12, HUMAN_REVIEW 9.
 | Counterfactual, provenance ignored (ablation) | 16/56 | 1.375 | 21 | 4 |
 | Counterfactual, no dependency blast radius (ablation) | 42/56 | 0.4464 | 11 | 1 |
 | **TERRACOG** | 39/56 | **0.5893** | 11 | 2 |
-
-What this does and does not show:
 
 - **Provenance is what matters.** Ignoring who changed it and why raises mean CDR from 0.5893 to 1.375.
   Every fixed policy and severity-only triage do worse still; severity-only reverts four of the six
@@ -67,24 +103,9 @@ What this does and does not show:
   negative cases it gets right by luck (`NEG-spoofed-breakglass`, `NEG-cost-not-modelled`), because a
   smaller SLO stake makes reverting look cheaper. Kept in v0.1 as specified; this is a measured
   negative result for that component.
-- **This is partly true by construction.** The author wrote the harm model, the rubric and the labels.
-  The model's weights (`INTENTS`, `TIER_WEIGHT`, the 0.6/0.3 exposure factors in `engine.py`) were set
-  before the first benchmark run and have not been tuned since; the numbers above are that first run.
-  That makes the cases a consistency check of one person's judgement, not ground truth.
 
-**Negative cases (all four fail, as expected; pinned by tests):**
-
-| Case | What happens | CDR |
-|---|---|---|
-| `NEG-spoofed-breakglass`: stolen break-glass session cites a real open incident and opens Postgres to the internet | indistinguishable from a real emergency; TERRACOG pages a human instead of reverting | 5 |
-| `NEG-audit-log-gap`: CloudTrail has not delivered the hotfix's event yet | no link to the open incident; escalated instead of held | 1 |
-| `NEG-stale-incident`: incident mitigated 30 days ago, never closed | the hold never expires | 2 |
-| `NEG-cost-not-modelled`: unneeded upsize doubles cost | cost is not a harm dimension; extra capacity looks free | 2 |
-
-Other TERRACOG errors include one severe one outside the negative set: `dns-hijack-unknown` (an
-unknown principal repoints the public API record) goes to human review instead of revert (CDR 6),
-because the harm of *keeping* a suspicious non-policy change live while waiting is not modelled.
-The full per-case table is in the report.
+Evidence coverage: 54/56 drifts have a linked audit event; 31/56 have verified provenance. The full
+per-case table, per-category means and the bootstrap intervals for every method are in the report.
 
 ## Quickstart
 
@@ -102,10 +123,9 @@ python -m terracog bench --out reports                                 # the ben
 For your own drift: `terraform plan -out p.tfplan && terraform show -json p.tfplan > plan.json`, a
 CloudTrail log file (`{"Records": [...]}`) covering the time since the last apply, a ticket export
 (`{"tickets": [{"id", "kind": "incident|change", "status", "service"}]}`) and a `world.json` modelled
-on [`fixtures/world.json`](fixtures/world.json). `decide` only reads files and prints. Example evidence report:
-[`reports/example-decision.md`](reports/example-decision.md).
+on [`fixtures/world.json`](fixtures/world.json). `decide` only reads files and prints.
 
-## How it works
+## Mechanism
 
 - **Parsing real formats.** Drift comes from `resource_drift` in the plan (prior state vs refreshed
   object), one decision per changed attribute; the IaC value is the configured value from
@@ -128,7 +148,92 @@ on [`fixtures/world.json`](fixtures/world.json). `decide` only reads files and p
   one unit of toil. The SLO stake is tier weight x (1 + 0.5 x dependents). Harms are mixed with the
   `unknown` intent by confidence; ties go to the more reversible action.
 
-## Prior art and what is not new
+## Threat and failure model
+
+TERRACOG never applies anything; a person or a pipeline with its own approval step acts on the
+recommendation. `world.json`, the plan and the ticket export's existence/service/status are trusted;
+CloudTrail content is attacker-influenced, because whoever assumes a role chooses the session name and
+so the cited ticket. Trust boundaries, threats and controls: [`docs/THREAT_MODEL.md`](docs/THREAT_MODEL.md).
+
+**Failure taxonomy.** Drift classes in the benchmark (cases per category): security-group mutation 7,
+emergency hotfix 6, controller-managed field 5, tag drift 5, public exposure 5, replica change 5,
+DNS change 5, resolved incident 4, approved but uncodified 4, IAM widening 3, config drift 3,
+negative 4. Provenance failures and how each ends:
+
+| Failure class | Case(s) | Outcome |
+|---|---|---|
+| Principal outside the directory (incl. an IAM user named like a trusted role) | `tag-by-unknown-principal`, `sg-postgres-world-unknown`, unit test | `suspicious`; never held or codified |
+| Ticket missing, for another service, or break-glass without one | `rds-public-unverified-ticket`, `ticket-for-other-service` | `unverified`; codify carries a penalty |
+| No audit event for the attribute | `tag-backup-no-event` | `unknown`; reverted, labelled HUMAN_REVIEW (CDR 2) |
+| Stolen break-glass session citing a real open incident | `NEG-spoofed-breakglass` | fails: human review, not revert (CDR 5) |
+| CloudTrail delivery lag hides the hotfix's event | `NEG-audit-log-gap` | fails: escalated instead of held (CDR 1) |
+| Incident mitigated long ago, never closed | `NEG-stale-incident` | fails: the hold never expires (CDR 2) |
+| Harm dimension not modelled (cost) | `NEG-cost-not-modelled` | fails: extra capacity looks free (CDR 2) |
+| Harm of keeping a suspicious non-policy change live while waiting | `dns-hijack-unknown` | fails outside the negative set: human review, not revert (CDR 6) |
+
+The four negative cases were written in advance and are pinned by `test_known_blind_spots_stay_documented`.
+**Not covered by any case:** interacting drifts across attributes, out-of-band deletes and creations
+(rejected by the parser), tampered or incomplete CloudTrail beyond delivery lag, errors in
+`world.json` itself (a wrong directory entry or missing dependency edge), compliance deadlines, data
+loss from destructive reverts, and Azure.
+
+## Experiment design
+
+- **Cases.** 56 cases in [`fixtures/cases.json`](fixtures/cases.json) over 21 resources in one invented
+  AWS environment ([`fixtures/world.json`](fixtures/world.json)), one drifted attribute each, rendered
+  into Terraform plan JSON (format 1.2), CloudTrail records and a ticket export and then parsed back
+  through the same parsers `decide` uses. Correct actions: REVERT 18, CODIFY 17, QUARANTINE 12,
+  HUMAN_REVIEW 9.
+- **Labels and harm.** For every case the author assigned the harm of all four actions on a 0-10
+  rubric (in `cases.json`); the label is the unique lowest-harm action, checked on load.
+- **Naive baselines.** Always revert, always codify, always page a human.
+- **Prior-art-inspired baseline.** Severity-only triage, modelled on tfdrift: severity by resource type
+  and attribute only; critical/high -> REVERT, medium -> HUMAN_REVIEW, low (tags) -> CODIFY. The tier
+  to action mapping is this repository's.
+- **Ablations.** Provenance rules without the counterfactual (a runbook-style intent -> action table);
+  the counterfactual with provenance ignored; the counterfactual without the dependency blast-radius term.
+- **Metrics.** Correct actions, mean and total CDR, wrong auto-remediations, cases with regret >= 5,
+  human reviews; also split into non-negative and negative cases and by category.
+- **Interval.** Paired bootstrap of mean CDR(method) - mean CDR(TERRACOG), 2000 resamples of the
+  cases, 95% interval, seed 7. The decisions themselves are deterministic.
+- **Regenerate.** `python -m terracog bench --out reports` (benchmark JSON + Markdown) and the `render`
+  / `decide` commands in the worked example (example decision). Reports record the commit, command,
+  Python version, platform and an input hash.
+
+## What this result does not establish
+
+- **Not ground truth.** The author wrote the harm model, the rubric, the labels and the harm values;
+  there is one labeller and no inter-rater agreement. The cases are a consistency check of one
+  person's judgement.
+- **Not a tuned or calibrated model.** The weights (`INTENTS`, `TIER_WEIGHT`, the 0.6/0.3 exposure
+  factors in `engine.py`) are hand-set, were fixed before the first benchmark run and have not been
+  tuned since; the numbers above are that first run.
+- **Not that the counterfactual layer beats provenance rules.** The 0.25 mean CDR gap has a 95%
+  interval of [-0.1964, 0.7679].
+- **Not that the blast-radius term helps.** Removing it lowers mean CDR (0.4464 vs 0.5893).
+- **Not performance on real drift.** All events, tickets and resources are synthetic; the bootstrap
+  resamples these author-written cases and says how stable the ranking is on this set only.
+- **Not a live-cloud result.** No fixture came from a real cloud account; nothing was applied.
+- **Not a defence against stolen identity.** A stolen break-glass session with a real incident id
+  looks legitimate (`NEG-spoofed-breakglass`).
+- **Not a comparison with an LLM.** The README-blueprint baseline "LLM recommendation without
+  counterfactual simulation" is not implemented (the portfolio rule is no LLM calls); the
+  provenance-rules ablation is the closest deterministic stand-in and is not the same thing.
+
+## Limitations
+
+- Harm dimensions are security, capacity/traffic and intent. Cost, compliance deadlines and data loss
+  from destructive reverts are not modelled, nor is the harm of keeping a suspicious non-policy change
+  live while a human looks.
+- One decision per attribute: interacting drifts (a security group plus a route table that only
+  together expose a database) are evaluated separately.
+- Only in-place updates; out-of-band deletes and creations are rejected. AWS only; Azure Activity Log
+  input is not implemented. The fixtures carry only the attributes relevant to each drift.
+- The plan's top level and `resource_changes` entries were checked against a plan emitted by Terraform
+  1.16.2; `resource_drift` uses the same change shape.
+- Holds have no enforced expiry; whatever applies a QUARANTINE must add one.
+
+## Research lineage
 
 - **NSync** ([arXiv 2510.20211](https://arxiv.org/abs/2510.20211)) infers intent from cloud API traces and
   synthesises IaC updates: it always codifies, and does that well (0.97 pass@3 on 372 drift scenarios).
@@ -150,24 +255,11 @@ deterministic, scored against a harm model over both counterfactual end states, 
 reproducible regret metric and a benchmark that includes the cases where provenance lies. I found no
 tool or paper that does this, which is a statement about my search, not a proof of novelty.
 
-**Not implemented:** the README-blueprint baseline "LLM recommendation without counterfactual
-simulation". The portfolio rule is no LLM calls; the provenance-rules ablation is the closest
-deterministic stand-in and is not the same thing.
+## Roadmap
 
-## Limitations
-
-- **Synthetic, author-labelled, one author.** 56 cases, one drifted attribute each, over one invented
-  AWS environment. No real incident data; no inter-rater agreement.
-- **Provenance is only as good as identity.** A stolen break-glass session with a real incident id
-  looks legitimate (`NEG-spoofed-breakglass`).
-- Harm dimensions are security, capacity/traffic and intent. Cost, compliance deadlines and data loss
-  from destructive reverts are not modelled. The weights are hand-set, not learned or calibrated.
-- One decision per attribute: interacting drifts (a security group plus a route table that only
-  together expose a database) are evaluated separately.
-- Only in-place updates; out-of-band deletes and creations are rejected. AWS only; Azure Activity Log
-  input is not implemented. The fixtures carry only the attributes relevant to each drift.
-- The plan's top level and `resource_changes` entries were checked against a plan emitted by Terraform
-  1.16.2; `resource_drift` uses the same change shape. No fixture came from a real cloud account.
+v0.2: a reviewable PR (`ignore_changes` for holds, attribute patch for codify) instead of a report,
+Azure Activity Log input, drift holds with enforced expiry, a harm term for keeping suspicious changes
+live, cost as a harm dimension, and a second labeller.
 
 ## Layout
 
@@ -180,11 +272,5 @@ terracog/bench.py          baselines, ablations, CDR, bootstrap, benchmark repor
 reports/                   generated evidence (JSON + Markdown)
 docs/THREAT_MODEL.md       what the tool trusts and what it does not control
 ```
-
-## Next (v0.2)
-
-A reviewable PR (`ignore_changes` for holds, attribute patch for codify) instead of a report, Azure
-Activity Log input, drift holds with enforced expiry, a harm term for keeping suspicious changes live,
-cost as a harm dimension, and a second labeller.
 
 MIT licensed.
