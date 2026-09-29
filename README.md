@@ -102,7 +102,8 @@ python -m terracog bench --out reports                                 # the ben
 For your own drift: `terraform plan -out p.tfplan && terraform show -json p.tfplan > plan.json`, a
 CloudTrail log file (`{"Records": [...]}`) covering the time since the last apply, a ticket export
 (`{"tickets": [{"id", "kind": "incident|change", "status", "service"}]}`) and a `world.json` modelled
-on [`fixtures/world.json`](fixtures/world.json). `decide` only reads files and prints.
+on [`fixtures/world.json`](fixtures/world.json). `decide` only reads files and prints. Example evidence report:
+[`reports/example-decision.md`](reports/example-decision.md).
 
 ## How it works
 
